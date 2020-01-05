@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<br>
+
+{% for person in PEOPLE %}
+    <div class="person">
+        {% with 'images/'|add:person.img as IMG %}
+        <img src="{% static IMG %}" alt="{{ person.title }}">
+        {% endwith %}
+        <h2>{{ person.name }}</h2>
+        <div>{{ person.title }}</div>
+        <p>{{ person.desc }}</p>
+        <div class="mail">{{ person.email }}</div>
+        <br><hr><br>
+    </div>
+{% endfor %}
+
+<br>
+
+{% endblock %}
